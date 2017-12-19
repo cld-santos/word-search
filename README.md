@@ -77,3 +77,4 @@ Este algoritmo utiliza os recursos nativos da biblioteca do Python versão 3.5 e
 
 Após o este processamento, podemos realizar nossa pesquisa em um bom desempenho. A pesquisa carrega o cache e acessa o _dict_ de palavras e usa uma função recursiva para encontrar os diferentes termos, então a partir do set de endereços que as palavras foram encontradas fazemos um _intersecction_ destes e o que resta são os arquivos com ocorrências das palavras.
 
+Mais informações consulte o [kanban do projeto](https://trello.com/b/WpJg5TnO/word-search) e o [próprio desafio](https://gist.github.com/Bgouveia/f4ee3ffdae96255f79f1da57e45cc559)
