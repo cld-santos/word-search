@@ -1,3 +1,0 @@
-meu-arquivo-tres.txt
-meu-arquivo-um.txt
-meu-arquivo-dois.txt
