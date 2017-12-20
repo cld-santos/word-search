@@ -16,6 +16,10 @@ if __name__ == '__main__':
         word_loader = WordLoader()
         word_searcher = WordSearch(FileSystemLoader(word_loader), word_loader)
         original_term = sys.argv[1]
+
+        # Este processo foi removido intencionalmente da contabilidade de tempo 
+        # levado para pesquisa, por se tratar de uma tarefa simples de leitura,
+        # o que varia bastante entre os diferentes tipos de hardwares.        
         word_searcher.load_cache()
 
         start = time.time()

@@ -5,14 +5,15 @@ Este toy-project tem o objetivo de avaliar os mecanismos para executar uma pesqu
 Para isso os usuário podem executar os commandos:
 
 ```
-$ python3.5 search pre-process
-$ python3.5 search.py "walt disney"
+word_search\src$ python3.5 search.py pre-process
+word_search\src$ python3.5 search.py "walt disney"
 
 ```
 
 Recebendo a resposta:
 
 ```
+word_search\src$ python3.5 search.py "walt disney"
 Foram encontradas em 0.0091 segs, 53 ocorrências pelo termo "walt disney".
 the-four-musicians-of-bremen.txt
 perri.txt

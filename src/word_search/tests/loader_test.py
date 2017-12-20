@@ -1,3 +1,4 @@
+import os
 import shutil
 import unittest
 from word_search.loader import (
@@ -29,7 +30,8 @@ class LoaderTest(unittest.TestCase):
         self.assertTrue(must_raise_exception)
 
     def test_must_pre_process_files(self):
-        shutil.rmtree('word_search/tests/cache/')
+        if os.path.exists('word_search/tests/cache/'):
+            shutil.rmtree('word_search/tests/cache/')
         word_loader = WordLoader()
         file_sys_loader = FileSystemLoader(
             word_loader,
