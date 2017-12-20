@@ -1,6 +1,7 @@
 import unittest
 from word_search.loader import FileSystemLoader, WordLoader
 from word_search.searcher import WordSearch
+from word_search.tests.util import CACHE_DIR, SOURCE_DIR
 
 
 class SearchTest(unittest.TestCase):
@@ -10,8 +11,8 @@ class SearchTest(unittest.TestCase):
         self.word_search = WordSearch(
             FileSystemLoader(
                 self.word_loader,
-                source_dir='word_search/tests/data/',
-                cache_dir='word_search/tests/cache/'),
+                source_dir=SOURCE_DIR,
+                cache_dir=CACHE_DIR),
             self.word_loader)
         self.word_search.pre_process()
         self.word_search.dump()
