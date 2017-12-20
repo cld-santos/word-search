@@ -42,6 +42,9 @@ class FileSystemLoader(SourceLoader):
         self.item_loader.load_items(file_name, self.sources[file_name])
 
     def load_cached_words(self):
+        if not os.path.exists(self.cache_dir + 'words.txt'):
+            raise Exception('Não há indices de pesquisa disponíveis.\nEfetue o pre-processamento e tente novamente.')
+
         with open(self.cache_dir + 'words.txt', "r", encoding='utf-8') as f:
             for line in f:
                 self.cached_words.append(line)

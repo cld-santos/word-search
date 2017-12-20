@@ -6,6 +6,7 @@ from word_search.loader import (
     WordLoader, 
     ItemLoader,
     SourceLoader)
+from word_search.tests.util import CACHE_DIR, SOURCE_DIR
 
 
 class LoaderTest(unittest.TestCase):
@@ -29,14 +30,31 @@ class LoaderTest(unittest.TestCase):
             must_raise_exception = True
         self.assertTrue(must_raise_exception)
 
-    def test_must_pre_process_files(self):
-        if os.path.exists('word_search/tests/cache/'):
-            shutil.rmtree('word_search/tests/cache/')
+    def test_must_fail_trying_load_cache_without_it(self):
+        if os.path.exists(CACHE_DIR):
+            shutil.rmtree(CACHE_DIR)
+
         word_loader = WordLoader()
         file_sys_loader = FileSystemLoader(
             word_loader,
-            source_dir='word_search/tests/data/',
-            cache_dir='word_search/tests/cache/')
+            source_dir=SOURCE_DIR,
+            cache_dir=CACHE_DIR)
+        must_raise_exception = False
+        try:
+            file_sys_loader.load_cached_words()
+        except:
+            must_raise_exception = True
+
+        self.assertTrue(must_raise_exception)
+
+    def test_must_pre_process_files(self):
+        if os.path.exists(CACHE_DIR):
+            shutil.rmtree(CACHE_DIR)
+        word_loader = WordLoader()
+        file_sys_loader = FileSystemLoader(
+            word_loader,
+            source_dir=SOURCE_DIR,
+            cache_dir=CACHE_DIR)
         file_sys_loader.load()
         file_sys_loader.dump()
         file_sys_loader.load_cached_words()
